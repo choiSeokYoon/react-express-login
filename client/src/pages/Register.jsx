@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useRef } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import './Register.scss'
 
 export default function Register() {
     const username = useRef();
@@ -29,49 +30,60 @@ export default function Register() {
     };
   return (
     <div className="login">
-      <div className="loginWrapper">
-        <div className="loginLeft">
-          <h3 className="loginLogo">회원가입</h3>
-          <span className="loginDesc">
+        <div className="login_container">
+            <div className="login_title">
+                <h1>회원가입</h1>
+            </div>
+        
+            <form className="login_form" onSubmit={handleClick}>
+                <div className="input_field">
+                    <input
+                        placeholder="Username"
+                        required
+                        ref={username}
+                        className="loginInput"
+                    />
+                </div>
+                <div className='input_field'>
+                    <input
+                        placeholder="Email"
+                        required
+                        ref={email}
+                        className="loginInput"
+                        type="email"
+                    />
+                </div>
+                <div className='input_field'>
+                    <input
+                        placeholder="Password"
+                        required
+                        ref={password}
+                        className="loginInput"
+                        type="password"
+                        minLength="6"
+                    />
+                </div>
             
-          </span>
+                <div className='input_field'>
+                    <input
+                        placeholder="Password Again"
+                        required
+                        ref={passwordAgain}
+                        className="loginInput"
+                        type="password"
+                    />
+                </div>
+                <div className='bottom_btn'>
+                    <button className="loginButton" type="submit">
+                        가입하기
+                    </button>
+                    <div className='login_prev'>
+                        <Link to="/">로그인 하러 가기</Link>
+                    </div>
+                </div>
+            </form>
+        
         </div>
-        <div className="loginRight">
-          <form className="loginBox" onSubmit={handleClick}>
-            <input
-              placeholder="Username"
-              required
-              ref={username}
-              className="loginInput"
-            />
-            <input
-              placeholder="Email"
-              required
-              ref={email}
-              className="loginInput"
-              type="email"
-            />
-            <input
-              placeholder="Password"
-              required
-              ref={password}
-              className="loginInput"
-              type="password"
-              minLength="6"
-            />
-            <input
-              placeholder="Password Again"
-              required
-              ref={passwordAgain}
-              className="loginInput"
-              type="password"
-            />
-            <button className="loginButton" type="submit">
-              가입하기
-            </button>
-          </form>
-        </div>
-      </div>
     </div>
-  )
+    )
 }

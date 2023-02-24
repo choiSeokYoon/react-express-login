@@ -39,29 +39,32 @@ export default function Login() {
             
             <form className="login_form" onSubmit={handleSubmit}>
                 <div className='input_field'>
-                    <input type="email" placeholder='email' ref={email} className="email"/>
+                    <input 
+                        type="email" 
+                        placeholder='email' 
+                        ref={email} 
+                        className="email"
+                    />
                 </div>
                 <div className='input_field'>
-                    <input type="password" placeholder='password' ref={password} className="password"/>
+                    <input 
+                        type="password" 
+                        placeholder='password' 
+                        ref={password} 
+                        className="password"
+                    />
                 </div>
-                
-                    <button type="submit" className='login_submit'>login</button>
-                    <div className='bottom'>
-                        <div className='left'>
-                            <input type="checkbox" id='check' />
-                            <label for="check">기억하기</label>
-                        </div>
-                        <div className='right'>
-                            <Link to="/register">회원가입</Link>
-                        </div>
+                <button type="submit" className='login_submit'>login</button>
+                <div className='bottom'>
+                    <div className='left'>
+                        <input type="checkbox" id='check' />
+                        <label for="check">기억하기</label>
                     </div>
-                    
-                
-                
-                
+                    <div className='right'>
+                        <Link to="/register">회원가입</Link>
+                    </div>
+                </div>
             </form>
-            
-            
         </div>
     </div>
   
