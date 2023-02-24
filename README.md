@@ -1,7 +1,7 @@
 <h1>회원가입 기능 구현<h1>
  <h2>client</h2>
  
-React sass Recoil
+React Sass Recoil
 
 ## server
  
