@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom"
 import Login from './pages/Login'
 import Main from './pages/Main'
 import Register from './pages/Register'
+import './app.css'
 
 
 export default function App() {

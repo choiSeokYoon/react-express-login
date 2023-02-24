@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
-import { emailState, passwordState, recoilUser } from '../recoil/atom';
+import { recoilUser } from '../recoil/atom';
+import './Login.scss'
 
 export default function Login() {
   const email = useRef('');
@@ -26,25 +27,43 @@ export default function Login() {
       console.log(error);
       alert('로그인 실패');
     }
-  };
+};
 
   return (
     <div className="login">
-      <div className="login_container">
-        <div className="login_title">
-          <h1>로그인</h1>
-        </div>
-        <div className="login_box">
-          <form className="login_form" onSubmit={handleSubmit}>
-            <div>
-              <input type="email" ref={email} />
-              <input type="password" ref={password} />
-              <button type="submit">전송</button>
+        <div className="login_container">
+            <div className="login_title">
+                <span>Have an acoount?</span>
+                <h1>로그인</h1>
             </div>
-          </form>
+            
+            <form className="login_form" onSubmit={handleSubmit}>
+                <div className='input_field'>
+                    <input type="email" placeholder='email' ref={email} className="email"/>
+                </div>
+                <div className='input_field'>
+                    <input type="password" placeholder='password' ref={password} className="password"/>
+                </div>
+                
+                    <button type="submit" className='login_submit'>login</button>
+                    <div className='bottom'>
+                        <div className='left'>
+                            <input type="checkbox" id='check' />
+                            <label for="check">기억하기</label>
+                        </div>
+                        <div className='right'>
+                            <Link to="/register">회원가입</Link>
+                        </div>
+                    </div>
+                    
+                
+                
+                
+            </form>
+            
+            
         </div>
-        <Link to="/register">회원가입</Link>
-      </div>
     </div>
+  
   );
 }
