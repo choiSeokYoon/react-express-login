@@ -58,7 +58,7 @@ export default function Login() {
                 <div className='bottom'>
                     <div className='left'>
                         <input type="checkbox" id='check' />
-                        <label for="check">기억하기</label>
+                        <label htmlFor="check">기억하기</label>
                     </div>
                     <div className='right'>
                         <Link to="/register">회원가입</Link>
