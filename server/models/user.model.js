@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema(
         username:{//유저 이름
             type:String,//문자열
             require:true, //필수 입력
-            min: 3, //최소 입력값
+            min: 2, //최소 입력값
             max: 30, //최대 입력값
             unique:true //유일성
         },

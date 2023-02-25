@@ -1,0 +1,16 @@
+.main{
+    margin-top: 100px;
+    .container{
+        width: 1050px;
+        margin: 0 auto;
+        height: inherit;
+        @media screen and (max-width:1050px){
+            width: 100%;
+            
+        }
+        .main_box{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

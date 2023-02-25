@@ -6,6 +6,7 @@ const helmet = require("helmet");//express의 보완성을 높여주는 미들�
 const morgan = require("morgan");//express의 로그를 기록해줌
 const cors =require("cors");
 const authRoute = require("./routes/auth")
+const postRoute = require("./routes/post")
 /* const userRoute = require("./routes/users") */
 
 dotenv.config();
@@ -29,6 +30,7 @@ app.use(morgan("common"))//common 형식이 일반적으로 사용됨
 
 //라우터
 app.use("/api/auth", authRoute)
+app.use("/api/post", postRoute)
 /* app.use("/api/users", userRoute) */
 
 

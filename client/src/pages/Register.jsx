@@ -10,12 +10,12 @@ export default function Register() {
     const passwordAgain = useRef();
     const navigate = useNavigate();
     //최소 6자 이상 대소문자, 숫자, 특수문자
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/;
+    const passwordRegex = /^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z\d]{6,}$/;
     
     const handleClick = async (e) => {
         e.preventDefault();
         if (!passwordRegex.test(password.current.value)) {
-            password.current.setCustomValidity("비밀번호는 최소 6자 이상이어야 하며, 대문자, 소문자, 숫자, 특수문자를 포함해야 함");
+            password.current.setCustomValidity("비밀번호는 최소 6자 이상이어야 하며, 문자와 숫자가 합처져야 함");
         } else if (passwordAgain.current.value !== password.current.value) {
             passwordAgain.current.setCustomValidity("비밀번호가 일치하지 않음");
         } else {
@@ -32,7 +32,7 @@ export default function Register() {
             }
         }
     };
-    // 이메일 정규식 추가
+    //이메일 정규식 추가
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const handleEmailChange = () => {
         if (!emailRegex.test(email.current.value)) {

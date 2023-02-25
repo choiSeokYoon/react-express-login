@@ -1,14 +1,16 @@
 *{
     margin: 0;
     padding: 0;
+    
 }
+
 body{
     background-image: url("../public/assets/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    
+    font-size: 10px;
 }
 a{
     text-decoration: none;
