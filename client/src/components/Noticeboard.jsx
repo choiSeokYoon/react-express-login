@@ -13,6 +13,7 @@ export default function Noticeboard() {
                 const data = await axios.get("http://localhost:8080/api/post")
                 console.log(data.data)
                 setPost(
+                    //순서
                     data.data.sort((p1, p2) => {
                         return new Date(p2.createdAt) - new Date(p1.createdAt)
                     })
@@ -36,23 +37,7 @@ export default function Noticeboard() {
     }
     
 
-    const handleEdit = async (id) => {
-        const newContent = prompt("수정할 내용을 입력하세요.");
-        if (newContent) {
-          try {
-            const response = await axios.put(
-              `http://localhost:8080/api/post/${id}`,
-              { content: newContent, userId: user._id }
-            );
-            const updatedPost = response.data;
-            setPost((prevPost) =>
-              prevPost.map((post) => (post._id === updatedPost._id ? updatedPost : post))
-            );
-          } catch (error) {
-            console.error(error);
-          }
-        }
-      };
+    
     
     
     return (
