@@ -4,8 +4,10 @@ import Login from './pages/Login'
 import Main from './pages/Main'
 import Register from './pages/Register'
 import MyProfile from './pages/MyProfile'
+
 import './app.css'
 import '../src/style/reset.css'
+
 
 
 export default function App() {
@@ -13,10 +15,10 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Login/>}/>
+          <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
-          <Route path='/main' element={<Main/>}/>
-          <Route path='/myprofile' element={<MyProfile/>}/>
+          <Route path='/' element={<Main/>}/>
+          <Route path='/myprofile/:user' element={<MyProfile/>}/>
         </Routes>
       </BrowserRouter>
     </>

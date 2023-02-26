@@ -4,9 +4,13 @@ const PostSchema = new mongoose.Schema(
     {
         userId: {
             type:String,
-            require:true
+            require:true,
         },
-        text: {
+        title:{
+            type: String,
+            required: true,
+        },
+        content:{
             type:String,
             max:500,
         },

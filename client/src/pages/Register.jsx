@@ -26,7 +26,7 @@ export default function Register() {
             };
             try {
                 await axios.post("http://localhost:8080/api/auth/register", user);
-                navigate("/");
+                navigate("/login");
             } catch (err) {
                 console.log(err);
             }
@@ -93,7 +93,7 @@ export default function Register() {
                             가입하기
                         </button>
                         <div className='login_prev'>
-                            <Link to="/">로그인 하러 가기</Link>
+                            <Link to="/login">로그인 하러 가기</Link>
                         </div>
                     </div>
                 </form>

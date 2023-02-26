@@ -21,7 +21,7 @@ export default function Login() {
       email.current.value = '';
       password.current.value = '';
       setUser(data.data);
-      navigate('/main');
+      navigate('/');
       alert('로그인 성공');
     } catch (error) {
       console.log(error);
