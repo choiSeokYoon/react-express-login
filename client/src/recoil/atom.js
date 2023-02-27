@@ -8,3 +8,9 @@ export const recoilUser = atom({
   default: null,
   effects_UNSTABLE:[persistAtom]
 });
+
+
+export const recoilPost = atom({
+  key: 'recoilPost',
+  default: [],
+})

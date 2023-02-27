@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useRecoilState } from 'recoil';
 import { recoilUser } from '../recoil/atom';
 import './NewPost.scss'
@@ -8,10 +8,13 @@ export default function Post({handleModal}) {
     const [user , setUser] = useRecoilState(recoilUser)
     const title = useRef('');
     const content = useRef('');
-
+    
+    console.log(user.username)
+    console.log(user._id)
     const handleClick = async (e) =>{
         e.preventDefault();
         const item = {
+            userName:e.username,
             userId:user._id,
             title:title.current.value,
             content:content.current.value

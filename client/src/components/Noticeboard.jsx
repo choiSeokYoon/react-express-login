@@ -1,12 +1,23 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil';
-import { recoilUser } from '../recoil/atom';
+import { recoilPost, recoilUser } from '../recoil/atom';
 import './Noticeboard.scss'
+import ViewPost from './ViewPost';
 
 export default function Noticeboard() {
-    const [post, setPost] = useState([]);
-    const [user , setUser] = useRecoilState(recoilUser)
+    const [post, setPost] =useRecoilState(recoilPost)
+    
+    const [showModal, setShowModal] = useState(false)
+    const [selectedPostId, setSelectedPostId] = useState(null); 
+    //post 모달창
+
+    const handleModal = (postId) =>{
+        setSelectedPostId(postId); // 클릭한 게시글의 postId를 상태로 저장
+        setShowModal(!showModal);
+    }
+
+
     useEffect(()=>{
         const fetchData = async ()=>{
             try{
@@ -24,35 +35,22 @@ export default function Noticeboard() {
         }
         fetchData()
     },[])
-
-    const handleDelete = async(id) => {
-        try{
-            await axios.delete(`http://localhost:8080/api/post/${id}`,{
-                data: {userId:user._id} //요청을 보낸 아이디
-            })
-            setPost(post.filter( item => item._id !== id ))
-        }catch (err) {
-            console.log(err)
-        }
-    }
-    
-
-    
-    
     
     return (
         (post && (
             <div className='noticeboard'>
-                <div className='notice_box'>
-                    {post.map((posts)=>(
-                        <>
-                            <div>{posts.title}</div>
-                            <button onClick={() => handleDelete(posts._id)}>삭제</button>
-                        </>
-                    ))}
+                {post.map((item)=>(
+                <div className='notice_box' onClick={() => handleModal(item._id)} key={item._id}> 
+                    <div className='post_title'>{item.title}</div>
+                    {selectedPostId === item._id && showModal && // 상태와 모달 모두 일치할 때만 보여줌
+                        <ViewPost item={item}/>
+                    }
                 </div>
+            ))}
+                
             </div>
         ))
-        
     )
 }
+
+
