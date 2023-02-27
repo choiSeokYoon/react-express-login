@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
     {
-        username:{//유저 이름
+        username:{
             type:String,//문자열
             require:true, //필수 입력
             min: 2, //최소 입력값

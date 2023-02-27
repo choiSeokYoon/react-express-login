@@ -17,7 +17,6 @@ export default function Noticeboard() {
         setShowModal(!showModal);
     }
 
-
     useEffect(()=>{
         const fetchData = async ()=>{
             try{
@@ -40,14 +39,18 @@ export default function Noticeboard() {
         (post && (
             <div className='noticeboard'>
                 {post.map((item)=>(
-                <div className='notice_box' onClick={() => handleModal(item._id)} key={item._id}> 
-                    <div className='post_title'>{item.title}</div>
-                    {selectedPostId === item._id && showModal && // 상태와 모달 모두 일치할 때만 보여줌
-                        <ViewPost item={item}/>
-                    }
-                </div>
-            ))}
+                    <>
+                        <div className='notice_box' onClick={() => handleModal(item._id)} key={item._id}> 
+                            <div className='post_title'>{item.title}</div>
+                        </div>
                 
+                        <div>
+                        {selectedPostId === item._id && showModal && // 상태와 모달 모두 일치할 때만 보여줌
+                            <ViewPost item={item}/>
+                        }
+                        </div>
+                    </>
+                ))}
             </div>
         ))
     )

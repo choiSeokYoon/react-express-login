@@ -1,11 +1,13 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { recoilPost, recoilUser } from '../recoil/atom'
+import './ViewPost.scss'
 
 export default function ViewPost({item}) {
     const [post, setPost] =useRecoilState(recoilPost)
     const [user , setUser] = useRecoilState(recoilUser)
+    const [edit, setEdit] = useState(false)
     
     const handleDelete = async(id) => {
         try{
@@ -19,11 +21,28 @@ export default function ViewPost({item}) {
             console.log(err)
         }
     }
+    const handleEdit = async(id) => {
+        try{
+            await axios.put(`http://localhost:8080/api/post/${id}`,{
+                
+            })
+        }catch (err) {
+            console.log(err)
+        }
+    }
     
   return (
-    <>
-        <div>{item.content}</div>
+    <div className='view_post'>
+        {
+            edit ? (
+                <div>{item.content}</div>
+            ) : (
+            <div>{item.content}</div>
+            )
+        }
+        
         <button onClick={() => handleDelete(item._id)}>삭제</button>
-    </>
+        <button onClick={() => handleEdit(item._id)}>수정</button>
+    </div>
   )
 }

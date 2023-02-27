@@ -14,11 +14,12 @@ export default function Post({handleModal}) {
     const handleClick = async (e) =>{
         e.preventDefault();
         const item = {
-            userName:e.username,
+            userName:user.username,
             userId:user._id,
             title:title.current.value,
             content:content.current.value
         };
+        console.log(item)
         try{
             await axios.post("http://localhost:8080/api/post/", item)
             window.location.reload();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useNavigate } from 'react-router-dom'
+import { useRecoilState } from 'recoil'
 import { recoilUser } from '../recoil/atom'
 import './Profile.scss'
 import profileImg from '../assets/messi_img.jpg'
@@ -26,19 +26,17 @@ export default function Profile() {
             <h2><img src={profileImg} alt="" /></h2>
           </div>
           <ul className='profile_info'>
-            
-              <li>
-                <p className='user_name'>{user.username}</p>
-              </li>
-              <li className='btn'>
-                <button>Myprofile</button>
-                <button onClick={handleModal}>만들기</button>
-                
-                <button onClick={()=>{
-                    setUser(null)
-                    navigate("/")
-                }}>Logout</button>
-              </li>
+            <li>
+              <p className='user_name'>{user.username}</p>
+            </li>
+            <li className='btn'>
+              <button>Myprofile</button>
+              <button onClick={handleModal}>만들기</button>
+              <button onClick={()=>{
+                  setUser(null)
+                  navigate("/")
+              }}>Logout</button>
+            </li>
           </ul>
         </>
         ) : (
