@@ -1,18 +1,18 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    
+
 }
 
-body{
-    background-image: url("../src/assets/bg.jpg");
-    background-size: cover;
+body {
+    background: #f5f3ff;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     font-size: 10px;
 }
-a{
+
+a {
     text-decoration: none;
     color: #000;
 }
